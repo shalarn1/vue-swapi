@@ -1,49 +1,17 @@
-# vue-swapi
+# README
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Vue 3 in Vite.
 
 ## Customize configuration
 
 See [Vite Configuration Reference](https://vite.dev/config/).
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
-
-# README
-
-Ruby 3.3.5 / Rails 7.0.8
-
 ## Install
 
 ### Clone the repository
 ```shell
-git clone git@github.com:shalarn1/instrumentl.git
-cd instrumentl
+git clone git@github.com:shalarn1/.git
+cd 
 ```
 ### Local development with Docker
 
@@ -58,18 +26,26 @@ docker compose build web
 docker compose run -p 8080:8080 web
 ```
 
-#### Relevant files for review:
-```shell
+## Non-Docker Setup
 
-Dockerfile
-docker-compose.yml
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
 ```
 
 # Front-End Project
 
-Imports data from a CSV of San Francisco restaurants, their inspections, and code violations to a relational (SQL) DB
+A basic website to display information from the Star Wars API.
 
 Notes:
-https://sarika-halarnakar.notion.site/CSV-Analysis-13ddd81f57b18031a281f45175b85a13?pvs=4
 
+1. I implemented a very basic loading state and cache using axios interceptors to help with page loads. It's still a bit slow even so. If the project were more complex, I would have considered adding vuex/pinia.
+2. It could benefit from UI pagination for the People and Films. I set the default to load all the records in 1 page so that it would the user would be able to view everything possible, but in the real world I would have wanted to display pages with next and back buttons. The pagination works with the routes query params so feel free play around with that if you manually construct it.
+3. I opted for a more basic approach to css/responsiveness/styling. I had planned to integrate tailwind but ultimately decided to just make minor adjustments to the css boilerplate included with the Vue.
+4. In the real world it would also need error handling and specs.
 
