@@ -25,20 +25,20 @@
 header {
   line-height: 1.5;
   max-height: 100vh;
-  margin-right: 4rem;
-  margin-bottom: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
 }
 
 .logo {
   display: block;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1rem;
 }
 
 nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 nav a {
@@ -75,6 +75,7 @@ nav a:first-of-type {
 
     padding: 1rem 0;
     margin-top: 1rem;
+    margin-right: 4rem;
   }
 }
 </style>

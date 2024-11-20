@@ -10,8 +10,7 @@
       return {
         loading: false,
         error: null,
-        headers: this.$helper.tableHeaders(this.$route.path),       
-        vehicle: null,
+        headers: this.$helper.tableHeaders(this.$route.path),
         vehicles: null,
         nextPageReq: null,
         prevPageReq: null,
@@ -46,7 +45,6 @@
           this.totalPages = vehicles.total_pages
           this.totalRecords = vehicles.total_records
           this.loading = false
-          console.log(this.vehicles)
         } catch (error) {
           console.error('Error fetching vehicles...', error)
         }
@@ -72,20 +70,10 @@
   }
 </script>
 <template>
-  <div class="vehicles">
+  <div>
     <div v-if="loading"> loading </div>
     <div v-else>
       <v-table :table-data="tableHeadersData" :table-headers="headers"/>
     </div>
   </div>
 </template>
-
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>

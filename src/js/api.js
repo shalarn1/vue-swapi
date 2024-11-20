@@ -14,9 +14,7 @@ const api = setupCache(instance, {
 export default {
 	async fetchFilms() {
 		try {
-			console.log("inside fetch films")
 			const response = await api.get("/films")
-
 			console.log(response.cached)
 
 			return response.data
@@ -27,10 +25,8 @@ export default {
 
 	async fetchPeopleOrVehicles(path) {
 		try {
-			console.log("inside fetch people or vehicles")
 			const response = await api.get(path)
 			const results = response.data.results
-			console.log(response)
 
 			const detailPromises = results.map(record => api.get(record.url))
 			const detailResponses = await Promise.all(detailPromises)
@@ -46,9 +42,7 @@ export default {
 
 	async fetchRecord(path) {
 		try {
-			console.log("inside fetch record")
 			const response = await api.get(path)
-
 			console.log(response.cached)
 
 			return response.data

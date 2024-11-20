@@ -36,10 +36,8 @@
       async fetchRecord() {
         try {
           const record = await this.$api.fetchRecord(this.$route.path)
-          console.log(record)
           this.record = record.result
           this.loading = false
-          console.log(this.record)
         } catch (error) {
           console.error('Error fetching record...', error)
         }
@@ -57,7 +55,7 @@
   }
 </script>
 <template>
-  <div v-if="!record"> loading </div>
+  <div v-if="loading"> loading </div>
   <div class="details" v-else>
     <div class="section">
       <div v-for="header in headers">

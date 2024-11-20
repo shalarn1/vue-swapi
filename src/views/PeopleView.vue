@@ -10,8 +10,7 @@
       return {
         loading: false,
         error: null,
-        headers: this.$helper.tableHeaders(this.$route.path),        
-        person: null,
+        headers: this.$helper.tableHeaders(this.$route.path),
         people: null,
         nextPageReq: null,
         prevPageReq: null,
@@ -71,20 +70,10 @@
   }
 </script>
 <template>
-  <div class="people">
+  <div>
     <div v-if="loading"> loading </div>
     <div v-else>
       <v-table :table-data="tableHeadersData" :table-headers="headers"/>
     </div>
   </div>
 </template>
-
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>

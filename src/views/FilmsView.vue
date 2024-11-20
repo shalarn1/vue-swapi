@@ -10,7 +10,6 @@
       return {
         loading: false,
         headers: this.$helper.tableHeaders(this.$route.path),
-        film: null,
         films: null,
         error: null
       }
