@@ -47,6 +47,14 @@
       isHeaderData(key) {
         return this.headers.some(h => h.key === key)
       },
+
+      capitalize(str) {
+        const words = str.match(/[A-Za-z][^_\-A-Z]*/g) || [];
+        return words.map((word) => {
+          return word.charAt(0).toUpperCase() + word.substring(1)
+        }).join(" ")
+      },
+
     },
 
     created () {
@@ -65,38 +73,52 @@
           v-if="$helper.isLink(recordData.headers[header.key])"
           :href="$helper.detailsLinkFor(recordData.headers[header.key])"
         >
-            {{ header.key }}: {{ $helper.detailsLinkFor(recordData.headers[header.key]) }}
+            <span class="bold">{{ capitalize(header.key) }}:</span>
+            {{ $helper.detailsLinkFor(recordData.headers[header.key]) }}
         </a>
-        <span v-else>{{ header.key }}: {{ recordData.headers[header.key] }}</span>
+        <span v-else-if="recordData.headers[header.key]" >
+          <span class="bold">{{ capitalize(header.key) }}:</span>
+          {{ recordData.headers[header.key] }}
+        </span>
       </div>
     </div>
     <div class="section">
       <div v-for="(value, key) of recordData.props">
           <a v-if="$helper.isLink(value)" :href="$helper.detailsLinkFor(value)">
-            {{ key }}: {{ $helper.detailsLinkFor(value) }}
+            <span class="bold">{{ capitalize(key) }}:</span>
+            {{ $helper.detailsLinkFor(value) }}
           </a>
-          <span v-else>{{ key }}: {{ value }}</span>
+          <span v-else>
+             <span class="bold">{{ capitalize(key) }}:</span> 
+            {{ value }}
+          </span>
       </div>
     </div>
     <div class="section">
-      <div v-for="(value, key) of recordData.links">
-        {{ key }}:
-        <div v-for="(link) of value">
-          <a :href="$helper.detailsLinkFor(link)">
-            {{ $helper.detailsLinkFor(link) }}
-          </a>
+      <div class="section" v-for="(value, key) of recordData.links">
+        <div class="bold">{{ capitalize(key) }}:</div>
+        <div>
+          <span v-for="(link) of value">
+            <a :href="$helper.detailsLinkFor(link)">
+              {{ $helper.detailsLinkFor(link) }},
+            </a>
+          </span>
         </div>
       </div>
     </div>
-    <div> Metadata </div>
+    <div class="bold"> Metadata </div>
     <div v-for="(value, key) of record">
-      <span v-if="key !== 'properties'"> {{ key }}: {{value}} </span>
+      <span v-if="key !== 'properties'"> {{ capitalize(key) }}: {{value}} </span>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
 @media (min-width: 1024px) {
+  a {
+    display: inline-block;
+  }
+
   .details {
     margin-top: 5rem;
   }
@@ -104,5 +126,9 @@
   .section {
     margin-bottom: 1rem;
   }
+}
+
+.bold {
+  font-weight: bold;
 }
 </style>

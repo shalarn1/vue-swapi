@@ -1,6 +1,9 @@
 # Use a Node.js base image
 FROM node:lts-alpine
 
+# install simple http server for serving static content
+RUN npm install -g http-server
+
 # Set the working directory inside the container
 WORKDIR /instrumentl
 

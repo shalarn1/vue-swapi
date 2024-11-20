@@ -10,8 +10,8 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 
 ### Clone the repository
 ```shell
-git clone git@github.com:shalarn1/.git
-cd 
+git clone git@github.com:shalarn1/vue-swapi.git
+cd vue-swapi
 ```
 ### Local development with Docker
 
@@ -20,10 +20,12 @@ The only local depedency should be Docker.
 #### Once Docker is running:
 ```shell
 # Build image and install app dependencies:
-docker compose build web
+docker build -t web .
 
 # Running the app (go to http://localhost:8080 in your browser)
-docker compose run -p 8080:8080 web
+docker run -p 8080:8080 web
+# OR
+docker run -it -p 8080:8080 --rm --name dockerize-vue-swapi web
 ```
 
 ## Non-Docker Setup
@@ -35,6 +37,7 @@ npm install
 ### Compile and Hot-Reload for Development
 
 ```sh
+# Running the app (go to http://localhost:8080 in your browser)
 npm run dev
 ```
 
