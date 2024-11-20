@@ -23,6 +23,11 @@ header {
   max-height: 100vh;
 }
 
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
 .active {
   text-decoration: underline;
   background-color: hsla(160, 100%, 37%, 0.2);

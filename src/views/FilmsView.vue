@@ -19,7 +19,7 @@
       tableHeadersData() {
         return this.films.map((film) => {
           return this.assembleHeaderData(film);
-        });
+        })
       },
     },
 
@@ -43,7 +43,7 @@
           release_date: filmProps.release_date,
           director: filmProps.director,
           characters: filmProps.characters
-        };
+        }
       },
     },
 

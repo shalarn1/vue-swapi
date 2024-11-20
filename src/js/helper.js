@@ -8,7 +8,7 @@ export default {
         { key: 'release_date', name: 'Release Date' },
         { key: 'director', name: 'Director' }, 
         { key: 'characters', name: 'Characters'},
-      ];
+      ]
 		case recordType.startsWith('/people'):
 			return [
         { key: 'name', name: 'Name' },
@@ -35,7 +35,7 @@ export default {
   },
 
   areLinks(tableColumn) {
-    return Array.isArray(tableColumn);
+    return Array.isArray(tableColumn)
   },
 
   isLink(tableColumn) {

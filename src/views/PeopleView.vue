@@ -24,7 +24,7 @@
     computed: {
       tableHeadersData() {
         return this.people.map((person) => {
-          return this.assembleHeaderData(person);
+          return this.assembleHeaderData(person)
         });
       },
 
@@ -59,7 +59,7 @@
           birth_year: personProps.birth_year,
           homeworld: personProps.homeworld,
           films: personProps.films
-        };
+        }
       },
     },
 

@@ -24,8 +24,8 @@
     computed: {
       tableHeadersData() {
         return this.vehicles.map((vehicle) => {
-          return this.assembleHeaderData(vehicle);
-        });
+          return this.assembleHeaderData(vehicle)
+        })
       },
 
       path() {
@@ -59,7 +59,7 @@
           crew: vehicleProps.crew,
           passengers: vehicleProps.passengers,
           pilots: vehicleProps.pilots
-        };
+        }
       },
     },
 

@@ -14,7 +14,6 @@
         if (this.record) {
           const props = this.record.properties
           const record = { links: {}, headers: {}, props: {}}
-          const links = []
           for(const [key, value] of Object.entries(props)) {
             if (this.$helper.areLinks(value)) {
               record.links[key] = value
@@ -27,7 +26,9 @@
             }
 
           }
-          return record;
+          return record
+        } else {
+          return null
         }
       },
     },
@@ -54,11 +55,12 @@
     }
   }
 </script>
+
 <template>
   <div v-if="loading"> loading </div>
   <div class="details" v-else>
     <div class="section">
-      <div v-for="header in headers">
+      <div v-for="(header, index) in headers" :key="index">
         <a
           v-if="$helper.isLink(recordData.headers[header.key])"
           :href="$helper.detailsLinkFor(recordData.headers[header.key])"
