@@ -42,11 +42,9 @@ export default {
   	return typeof tableColumn === 'string' && tableColumn.startsWith('https:')
   },
 
-  paginatedPath(path, query, page, limit) {
+  paginatedPath(path, query) {
     if (query.page && query.limit) {
       return path + `?page=${query.page}&limit=${query.limit}`
-    } else if (limit && page) {
-      return path + `?page=${page}&limit=${limit}`
     } else {
       return path
     }

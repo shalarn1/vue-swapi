@@ -14,10 +14,8 @@
         vehicles: null,
         nextPageReq: null,
         prevPageReq: null,
-        totalPages: 0,
-        totalRecords: 0,
-        page: 1,
-        limit: 39,
+        totalPages: null,
+        totalRecords: null,
       }
     },
 
@@ -31,8 +29,37 @@
       path() {
         const path = this.$route.path
         const query = this.$route.query
-        return this.$helper.paginatedPath(path, query, this.page, this.limit)
-      }
+        return this.$helper.paginatedPath(path, query)
+      },
+
+      nextQueryParams() {
+        if (this.nextPageReq) {
+          return new URLSearchParams(this.nextPageReq)
+        } else {
+          return null
+        }
+      },
+
+      prevQueryParams() {
+        if (this.prevPageReq) {
+          return new URLSearchParams(this.prevPageReq)
+        } else {
+          return null
+        }
+      },
+
+      paginationData() {
+        console.log(this.nextQueryParams.entries())
+        console.log(this.nextQueryParams?.get('page'))
+        return {
+          nextPage: this.nextQueryParams?.get('page'),
+          nextLimit: this.nextQueryParams?.get('limit'),
+          prevPage: this.prevQueryParams?.get('page'),
+          prevLimit: this.prevQueryParams?.get('limit'),
+          totalPages: this.totalPages,
+          totalRecords: this.totalRecords
+        }
+      },
     },
 
     methods: {
@@ -73,7 +100,7 @@
   <div>
     <div v-if="loading"> loading </div>
     <div v-else>
-      <v-table :table-data="tableHeadersData" :table-headers="headers"/>
+      <v-table :table-data="tableHeadersData" :table-headers="headers" :pagination-data="paginationData"/>
     </div>
   </div>
 </template>

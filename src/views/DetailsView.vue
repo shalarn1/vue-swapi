@@ -115,10 +115,6 @@
 
 <style scoped>
 @media (min-width: 1024px) {
-  a {
-    display: inline-block;
-  }
-
   .details {
     margin-top: 5rem;
   }
@@ -126,6 +122,10 @@
   .section {
     margin-bottom: 1rem;
   }
+}
+
+a {
+  display: inline-block;
 }
 
 .bold {

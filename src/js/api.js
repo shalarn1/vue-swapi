@@ -15,7 +15,6 @@ export default {
 	async fetchFilms() {
 		try {
 			const response = await api.get("/films")
-			console.log(response.cached)
 
 			return response.data
 		} catch (error) {
@@ -43,7 +42,6 @@ export default {
 	async fetchRecord(path) {
 		try {
 			const response = await api.get(path)
-			console.log(response.cached)
 
 			return response.data
 		} catch (error) {
