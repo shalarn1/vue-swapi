@@ -24,8 +24,6 @@ docker build -t web .
 
 # Running the app (go to http://localhost:8080 in your browser)
 docker run -p 8080:8080 web
-# OR
-docker run -it -p 8080:8080 --rm --name dockerize-vue-swapi web
 ```
 
 ## Non-Docker Setup
@@ -48,7 +46,7 @@ A basic website to display information from the Star Wars API.
 Notes:
 
 1. I implemented a very basic loading state and cache using axios interceptors to help with page loads. It's still a bit slow even so. If the project were more complex, I would have considered adding vuex/pinia.
-2. It could benefit from UI pagination for the People and Films. I set the default to load all the records in 1 page so that it would the user would be able to view everything possible, but in the real world I would have wanted to display pages with next and back buttons. The pagination works with the routes query params so feel free play around with that if you manually construct it.
-3. I opted for a more basic approach to css/responsiveness/styling. I had planned to integrate tailwind but ultimately decided to just make minor adjustments to the css boilerplate included with the Vue.
+2. It could benefit from UI pagination for the People and Films. In the real world I would have wanted to display pages with next and back buttons. The pagination works with the routes' query params so feel free play around with that if you manually construct it.
+3. I opted for a more basic approach to css/responsiveness/styling. I had planned to integrate tailwind but ultimately decided to just make minor adjustments to the css boilerplate included from Vue.
 4. In the real world it would also need error handling and specs.
 
