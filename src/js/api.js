@@ -8,7 +8,7 @@ const instance = axios.create({
 // persist on refresh and expire after 1 hour
 const api = setupCache(instance, {
 	storage: buildWebStorage(localStorage, 'axios-cache:'),
-	ttl: 36000000
+	ttl: 3600000
 })
 
 export default {

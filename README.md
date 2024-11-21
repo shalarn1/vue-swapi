@@ -45,8 +45,9 @@ A basic website to display information from the Star Wars API.
 
 Notes:
 
-1. I implemented a very basic loading state and cache using axios interceptors to help with page loads. It's still a bit slow even so. If the project were more complex, I would have considered adding vuex/pinia.
-2. It could benefit from UI pagination for the People and Films. In the real world I would have wanted to display pages with next and back buttons. The pagination works with the routes' query params so feel free play around with that if you manually construct it.
-3. I opted for a more basic approach to css/responsiveness/styling. I had planned to integrate tailwind but ultimately decided to just make minor adjustments to the css boilerplate included from Vue.
-4. In the real world it would also need error handling and specs.
+1. I implemented the table vue and details view for films, people, and vehicles. There is not a table view for the other categories, however, the details view does work, though the data is not formatted in an order of importance. This was implemented so that links to these records would work.
+2. I implemented a very basic loading state and cache using axios interceptors to help with page loads. It's still a bit slow even so and the cache persists on refresh and expires after 60 minutes. If the project were more complex, I would have considered adding vuex/pinia.
+3. It could benefit from UI pagination for the People and Films. In the real world I would have wanted to display pages with next and back buttons. The pagination works with the routes' query params so feel free play around with that if you manually construct it.
+4. I opted for a more basic approach to css/responsiveness/styling. I had planned to integrate tailwind but ultimately decided to just make minor adjustments to the css boilerplate included from Vue. The sidebar and the details page are major improvement areas. For the details page, I would have wanted to make the data keys more human readable and of couse added css to make it more digestible.
+5. In the real world it would also need error handling and specs. There is also some repeated code between the people and vehicles logic. Upon implementing more categories, I would have wanted to abstract that logic into a shared file.
 

@@ -49,8 +49,6 @@
       },
 
       paginationData() {
-        console.log(this.nextQueryParams.entries())
-        console.log(this.nextQueryParams?.get('page'))
         return {
           nextPage: this.nextQueryParams?.get('page'),
           nextLimit: this.nextQueryParams?.get('limit'),

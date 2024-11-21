@@ -45,7 +45,11 @@
       },
 
       isHeaderData(key) {
-        return this.headers.some(h => h.key === key)
+        if (this.headers) {
+          return this.headers.some(h => h.key === key)
+        } else {
+          return false
+        }
       },
 
       capitalize(str) {
@@ -67,7 +71,7 @@
 <template>
   <div v-if="loading"> loading </div>
   <div class="details" v-else>
-    <div class="section">
+    <div v-if="headers" class="section">
       <div v-for="(header, index) in headers" :key="index">
         <a
           v-if="$helper.isLink(recordData.headers[header.key])"
