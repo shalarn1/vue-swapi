@@ -73,13 +73,14 @@
   <div class="details" v-else>
     <div v-if="headers" class="section">
       <div v-for="(header, index) in headers" :key="index">
-        <a
-          v-if="$helper.isLink(recordData.headers[header.key])"
-          :href="$helper.detailsLinkFor(recordData.headers[header.key])"
-        >
-            <span class="bold">{{ capitalize(header.key) }}:</span>
+        <div v-if="$helper.isLink(recordData.headers[header.key])">
+          <span class="bold">{{ capitalize(header.key) }}:</span>
+          <a
+            :href="$helper.detailsLinkFor(recordData.headers[header.key])"
+          >
             {{ $helper.detailsLinkFor(recordData.headers[header.key]) }}
-        </a>
+          </a>
+        </div>
         <span v-else-if="recordData.headers[header.key]" >
           <span class="bold">{{ capitalize(header.key) }}:</span>
           {{ recordData.headers[header.key] }}
@@ -88,10 +89,12 @@
     </div>
     <div class="section">
       <div v-for="(value, key) of recordData.props">
-          <a v-if="$helper.isLink(value)" :href="$helper.detailsLinkFor(value)">
+          <div v-if="$helper.isLink(value)">
             <span class="bold">{{ capitalize(key) }}:</span>
-            {{ $helper.detailsLinkFor(value) }}
-          </a>
+            <a :href="$helper.detailsLinkFor(value)">
+              {{ $helper.detailsLinkFor(value) }}
+            </a>
+          </div>
           <span v-else>
              <span class="bold">{{ capitalize(key) }}:</span> 
             {{ value }}

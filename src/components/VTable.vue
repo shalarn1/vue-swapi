@@ -88,7 +88,7 @@ thead, th {
 }
 
 tr:hover {
-  border: 6px solid var(--color-text);
+  border-bottom: 6px solid var(--color-text);
   cursor: pointer;
 }
 
