@@ -2,10 +2,6 @@
 
 Vue 3 in Vite.
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
 ## Install
 
 ### Clone the repository
@@ -37,6 +33,21 @@ npm install
 ```sh
 # Running the app (go to http://localhost:8080 in your browser)
 npm run dev
+```
+
+#### Relevant files for review:
+```shell
+index.html
+src/main.js
+src/App.vue
+src/router/*.js
+src/js/*.js
+src/views/*.vue
+src/components/*.vue
+
+vite.config.js
+package.json
+Dockerfile
 ```
 
 # Front-End Project
